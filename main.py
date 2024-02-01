@@ -38,16 +38,16 @@ def check(client, username):
         print(R+"Username Banned : " + username)
 
 def username(client):
-    AB = 'QWERTYUIOPASDFGHJKLZXCVBNM'
+    AB = 'qwertYuiopasdfghjklzxcvbnm'
     num = '1234567890'
     while True:
         mm = str("".join(random.choice(AB) for i in range(1)))
         nn = str("".join(random.choice(AB) for i in range(1)))
         ww = str("".join(random.choice(num) for i in range(1)))
         hh = str("".join(random.choice(AB) for i in range(1)))
-        c = (mm + mm + mm + "_" + nn )
-        c1 = (mm + "_" + nn + "_" + hh)
-        c2 = (mm + "_" + mm + mm + ww)
+        c = (mm + ww + nn + "_" + nn )
+        c1 = (mm + mm + nn + "_" + nn)
+        c2 = (mm + hh + mm + nn + ww)
         c3 = (mm + mm + mm + "_" + hh)
         c4 = (hh + "_" + mm + mm + mm)
         c5 = (nn  + mm + mm + "_" + mm)
