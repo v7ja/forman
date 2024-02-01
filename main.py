@@ -51,18 +51,21 @@ def username(client):
         c3 = (mm + mm + mm + "_" + hh)
         c4 = (hh + "_" + mm + mm + mm)
         c5 = (nn  + mm + mm + "_" + mm)
-        c6 = (mm + "_" + nn + nn + nn)
-        c7 = (hh  + mm + ww + ww + ww)
+        c6 = (mm + "_" + ww + hh + nn)
+        c7 = (hh  + mm + ww + hh + ww)
         c8 = (mm + hh + ww + ww + ww)
-        c9 = (mm + mm + ww + nn + nn)
+        c9 = (mm + hh + ww + nn + nn)
         user = (c,c1,c2,c3,c4,c5,c6,c7,c8,c9)
         username = str("".join(random.choice(user)))
         check(client, username)
 api_id = input('- Enter Api_Id : ')
 api_hash = input('- Enter Api_Hash : ')
 def session1():
-    client = TelegramClient(StringSession(), api_id, api_hash)
-    client.start()
+    client=TelegramClient('cloent', api_id,api_hash)
+
+result = client(functions.channels.UpdateUsernameRequest(channel="يوزر قناة",username="يوزر"))
+
+    print(result)
     session = client.session.save()
     client.disconnect()
     return session
