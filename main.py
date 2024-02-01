@@ -23,7 +23,7 @@ def check(client, username):
         return "sale"
     time.sleep(2)
     try:
-        result = client(CheckUsernameRequest(username=username))
+        result = client(functions.channels.UpdateUsernameRequest(channel="يوزر قناة",username="يوزر"))
         if result:
             print(G+"UserName Available : " + username)
             bot.send_message(chat_id=chat_id,text=username)
@@ -61,11 +61,8 @@ def username(client):
 api_id = input('- Enter Api_Id : ')
 api_hash = input('- Enter Api_Hash : ')
 def session1():
-    client=TelegramClient('cloent', api_id,api_hash)
-
-result = client(functions.channels.UpdateUsernameRequest(channel="يوزر قناة",username="يوزر"))
-
-    print(result)
+    client = TelegramClient(StringSession(), api_id, api_hash)
+    client.start()
     session = client.session.save()
     client.disconnect()
     return session
