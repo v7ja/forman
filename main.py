@@ -4,6 +4,7 @@ from telethon.tl.functions.account import CheckUsernameRequest, UpdateUsernameRe
 from telethon.tl.functions.channels import JoinChannelRequest
 from telethon.tl.functions.messages import SendMessageRequest
 from datetime import datetime
+from telethon import functions, types
 import random, time, requests, telebot , os
 R = '\033[1;31m'
 y = '\033[1;33m'
@@ -21,12 +22,12 @@ def check(client, username):
     if '<span class="tm-section-header-status tm-status-avail">Available</span>' in requ.text:
         print("UserName Available In Fragment : " + username)
         return "sale"
-    time.sleep(2)
+    time.sleep(0)
     try:
-        result = client(functions.channels.UpdateUsernameRequest(channel="يوزر قناة",username="يوزر"))
-        if result:
             print(G+"UserName Available : " + username)
-            bot.send_message(chat_id=chat_id,text=username)
+            result = client(functions.channels.UpdateUsernameRequest(channel="يوزر قناة",username="يوزر"))
+            if result:
+            
         else:
             print(R+"UserName Not Available : " + username)
     except errors.FloodWaitError as timb:
