@@ -28,7 +28,7 @@ def check(client, username):
             result = client(functions.channels.UpdateUsernameRequest(channel="يوزر قناة",username="يوزر"))
             if result:
             
-        else:
+            else:
             print(R+"UserName Not Available : " + username)
     except errors.FloodWaitError as timb:
         print(f'You Have Been Blocked Wait {timb.seconds}')
