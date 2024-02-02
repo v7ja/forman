@@ -24,7 +24,7 @@ def check(client, username):
         return "sale"
     time.sleep(2)
     try:
-        result = client(functions.channels.UpdateUsernameRequest(channel="يوزر قناة",username="يوزر"))
+        result = client(functions.channels.UpdateUsernameRequest(channel=username))
         if result:
             print(G+"UserName Available : " + username)
         else:
