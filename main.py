@@ -22,13 +22,12 @@ def check(client, username):
     if '<span class="tm-section-header-status tm-status-avail">Available</span>' in requ.text:
         print("UserName Available In Fragment : " + username)
         return "sale"
-    time.sleep(0)
+    time.sleep(2)
     try:
+        result = client(functions.channels.UpdateUsernameRequest(channel="يوزر قناة",username="يوزر"))
+        if result:
             print(G+"UserName Available : " + username)
-            result = client(functions.channels.UpdateUsernameRequest(channel="يوزر قناة",username="يوزر"))
-            if result:
-            
-            else:
+        else:
             print(R+"UserName Not Available : " + username)
     except errors.FloodWaitError as timb:
         print(f'You Have Been Blocked Wait {timb.seconds}')
@@ -55,7 +54,7 @@ def username(client):
         c6 = (mm + "_" + ww + hh + nn)
         c7 = (hh  + mm + ww + hh + ww)
         c8 = (mm + hh + ww + ww + ww)
-        c9 = (mm + hh + ww + nn + nn)
+        c9 = (mm + hh + ww + nn + nn + mm)
         user = (c,c1,c2,c3,c4,c5,c6,c7,c8,c9)
         username = str("".join(random.choice(user)))
         check(client, username)
