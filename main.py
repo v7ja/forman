@@ -4,7 +4,6 @@ from telethon.tl.functions.account import CheckUsernameRequest, UpdateUsernameRe
 from telethon.tl.functions.channels import JoinChannelRequest
 from telethon.tl.functions.messages import SendMessageRequest
 from datetime import datetime
-from telethon import functions, types
 import random, time, requests, telebot , os
 R = '\033[1;31m'
 y = '\033[1;33m'
@@ -24,9 +23,10 @@ def check(client, username):
         return "sale"
     time.sleep(2)
     try:
-        result = client(functions.channels.UpdateUsernameRequest(channel=ch,username=username))
+        result = client(CheckUsernameRequest(username=username))
         if result:
             print(G+"UserName Available : " + username)
+            bot.send_message(chat_id=chat_id,text=username)
         else:
             print(R+"UserName Not Available : " + username)
     except errors.FloodWaitError as timb:
@@ -38,23 +38,23 @@ def check(client, username):
         print(R+"Username Banned : " + username)
 
 def username(client):
-    AB = 'qwertYuiopasdfghjklzxcvbnm'
+    AB = 'QWERTYUIOPASDFGHJKLZXCVBNM'
     num = '1234567890'
     while True:
         mm = str("".join(random.choice(AB) for i in range(1)))
         nn = str("".join(random.choice(AB) for i in range(1)))
         ww = str("".join(random.choice(num) for i in range(1)))
         hh = str("".join(random.choice(AB) for i in range(1)))
-        c = (mm + ww + nn + "_" + nn )
-        c1 = (mm + mm + nn + "_" + nn)
-        c2 = (mm + hh + mm + nn + ww)
-        c3 = (mm + mm + mm + "_" + hh)
+        c = (mm + mm + mm + "_" + nn )
+        c1 = (mm + "_" + nn + "_" + hh)
+        c2 = (mm + "_" + mm + mm + ww)
+        c3 = ("I" + mm + mm + "_" + "l")
         c4 = (hh + "_" + mm + mm + mm)
         c5 = (nn  + mm + mm + "_" + mm)
-        c6 = (mm + "_" + ww + hh + nn)
-        c7 = (hh  + mm + ww + hh + ww)
-        c8 = (mm + hh + ww + ww + ww)
-        c9 = (mm + hh + ww + nn + nn + mm)
+        c6 = (mm + "_" + nn + nn + nn)
+        c7 = (nn + "l" + "I" + nn + "I")
+        c8 = ("I" + "I" + ww + ww + "l")
+        c9 = ("I" + nn + "l" + nn + "l")
         user = (c,c1,c2,c3,c4,c5,c6,c7,c8,c9)
         username = str("".join(random.choice(user)))
         check(client, username)
